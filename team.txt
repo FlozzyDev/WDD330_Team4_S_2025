@@ -4,3 +4,4 @@ Netlify Site: https://lively-rabanadas-ac1391.netlify.app/
 
 Team Members: 
 1. Dallin Hale
+2. Eric Shewchuk
