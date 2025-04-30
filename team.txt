@@ -6,3 +6,4 @@ Team Members:
 1. Dallin G Hale
 2. Eric Shewchuk
 3. Lowry Williams
+4. Jade Miller
