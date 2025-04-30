@@ -24,4 +24,3 @@ In our case right now, the branches do not contain anything important that needs
 
 After the pull request has been made (you can do this through github.com) the driver should go to the repository in GitHub and review the request and then finish the merge. Make sure that any extra branches are deleted once you are done merging.
 
-Move the card in Trello to "Done".
