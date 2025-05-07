@@ -11,6 +11,7 @@
   /* sizes */
   --font-base: 18px;
   --small-font: 0.8em;
+  --medium-font: 1em;
   --large-font: 1.2em;
 }
 * {
@@ -83,6 +84,7 @@ header {
 
 button {
   padding: 0.5em 2em;
+  border-radius: 4%;
   background-color: var(--secondary-color);
   color: white;
   margin: auto;
@@ -129,6 +131,28 @@ button {
   list-style-type: none;
   padding: 0;
 }
+
+.empty-cart {
+  width: 100%;
+  text-align: center;
+}
+
+.empty-cart p {
+  font-size: var(--large-font);
+}
+
+.empty-cart .home-button {
+  padding: 0.5em 2em;
+  border-radius: 4%;
+  background-color: var(--secondary-color);
+  color: white;
+  margin: auto;
+  display: block;
+  border: 0;
+  font-size: var(--medium-font);
+  cursor: pointer;
+}
+
 .product-list a {
   text-decoration: none;
   color: var(--dark-grey);
