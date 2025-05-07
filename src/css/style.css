@@ -108,6 +108,24 @@ button {
 .cart svg {
   width: 25px;
 }
+
+.cart-counter {
+  position: absolute;
+  top: 1;
+  right: 0;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(50%, -50%);
+  font-weight: bolder;
+}
+
 .cart:hover svg {
   fill: gray;
 }
@@ -123,10 +141,12 @@ button {
 }
 .products {
   padding: 0.5em;
+  text-align: center;
 }
 .product-list {
   display: flex;
   flex-flow: row wrap;
+  text-align: center;
   justify-content: space-between;
   list-style-type: none;
   padding: 0;
@@ -243,4 +263,25 @@ button {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+
+/* Animations below */ 
+
+.pulse-orange {
+  animation: pulse-orange 1s ease-in-out, shake 0.5s ease-in-out;
+}
+
+@keyframes pulse-orange {
+  0% {fill: inherit}
+  50% {fill: var(--primary-color)}
+  100% {fill: inherit}
+}
+
+@keyframes shake {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-3px); }
+  40% { transform: translateY(3px); }
+  60% { transform: translateY(-2px); }
+  80% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
 }
