@@ -1,3 +1,4 @@
+
 import { getParam } from "./utils.mjs";
 import getProductDetails from "./productDetails.mjs";
 
