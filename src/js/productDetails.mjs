@@ -1,3 +1,4 @@
+import { updateCartCounter } from "./main.js";
 import { findProductById } from "./productData.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 
@@ -42,4 +43,15 @@ function addProductToCart(product) {
   }
   cart.push(product);
   setLocalStorage("so-cart", cart);
+  pulseCartIcon();
+  updateCartCounter();
+}
+
+function pulseCartIcon() {
+  const cartIcon = document.getElementById("cart-icon");
+  cartIcon.classList.add("pulse-orange");
+  setTimeout(() => {
+    cartIcon.classList.remove("pulse-orange");
+  }, 1000);
+  console.log("pulsed!");
 }
