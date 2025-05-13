@@ -2,7 +2,7 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  if (!cartItems) {
+  if (!cartItems || !Array.isArray(cartItems) || cartItems.length === 0) {
     // if cart empty...
     document.getElementById("product-list--cart").innerHTML = `
     <li class="empty-cart">
