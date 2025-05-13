@@ -19,6 +19,7 @@ function renderCartContents() {
     button.addEventListener("click", function () {
       const id = this.getAttribute("data-id");
       removeItemFromCart(id);
+      updateCartCounter();
     });
   });
 }
@@ -62,9 +63,9 @@ export function updateCartCounter() {
   const cartCounter = document.getElementById("cart-counter");
   let count = 0;
 
-  if (!cartItems) return;
-  else count = cartItems.length;
-  cartCounter.textContent = count;
+  if (cartItems) {
+    cartCounter.textContent = Array.isArray(cartItems) ? cartItems.length : 0; // need to update even if cart = 0
+  }
 }
 
 function pulseCartIcon() {
@@ -85,11 +86,8 @@ function removeItemFromCart(id) {
     cart.splice(itemIndex, 1);
   }
 
-  if (cart.length === 0) {
-    localStorage.removeItem("so-cart");
-  } else {
-    setLocalStorage("so-cart", cart);
-  }
+  setLocalStorage("so-cart", cart);
+
   renderCartContents();
   pulseCartIcon();
   updateCartCounter();
