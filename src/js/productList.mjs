@@ -2,11 +2,10 @@ import { getData } from "./productData.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
-
-    return `<li class="product-card">
+  return `<li class="product-card">
     <a href="product_pages/index.html?product=${product.Id}">
     <img 
-        src="public${product.Image}" 
+        src="${product.Image}" 
         alt="${product.Name}"
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -15,7 +14,7 @@ function productCardTemplate(product) {
         <strong>Our Price:</strong> ${product.FinalPrice}<br>
         You Save: $${product.SuggestedRetailPrice - product.FinalPrice}</p>
     </a>
-    </li>`
+    </li>`;
 }
 
 export default async function productList(selector, category) {
@@ -29,4 +28,3 @@ function highlightProducts(products) {
   const targetProducts = ["880RR", "985RF", "985PR", "344YJ"];
   return products.filter((product) => targetProducts.includes(product.Id));
 }
-

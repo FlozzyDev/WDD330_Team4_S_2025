@@ -14,7 +14,6 @@ export default async function getProductDetails(productId) {
     .addEventListener("click", function (event) {
       addProductToCart(product);
       console.log(`product ${productId} successfully added`);
-      console.log("Cart contents:", JSON.stringify(getLocalStorage("so-cart")));
     });
 }
 
