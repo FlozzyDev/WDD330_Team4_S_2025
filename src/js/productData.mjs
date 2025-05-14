@@ -7,7 +7,7 @@ function convertToJson(res) {
 }
 
 export async function getData(category = "tents") {
-  const response = await fetch(`../public/json/${category}.json`);
+  const response = await fetch(`json/${category}.json`);
   console.log("Trying to fetch data:", response);
   const data = await convertToJson(response);
   return data;
