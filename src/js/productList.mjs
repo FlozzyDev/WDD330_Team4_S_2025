@@ -2,6 +2,10 @@ import { getData } from "./productData.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
+  const newPrice = Number(
+    (product.SuggestedRetailPrice - product.FinalPrice).toFixed(0),
+  );
+
   return `<li class="product-card">
     <a href="product_pages/index.html?product=${product.Id}">
     <img 
@@ -10,9 +14,9 @@ function productCardTemplate(product) {
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>
     <h2 class="card__name">${product.NameWithoutBrand}</h2>
-    <p class="product-card__price">Suggested Retail: ${product.ListPrice}<br>
-        <strong>Our Price:</strong> ${product.FinalPrice}<br>
-        You Save: $${product.SuggestedRetailPrice - product.FinalPrice}</p>
+    <p class="product-card__price">Suggested Retail: $${product.SuggestedRetailPrice}<br>
+        <strong>Our Price:</strong> $${product.FinalPrice}<br>
+        You Save: $${newPrice}</p>
     </a>
     </li>`;
 }

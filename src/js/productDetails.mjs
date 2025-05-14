@@ -18,17 +18,21 @@ export default async function getProductDetails(productId) {
 }
 
 function renderProductDetails() {
+  const newPrice = Number(
+    (product.SuggestedRetailPrice - product.FinalPrice).toFixed(0),
+  );
+
   document.getElementById("productBrand").textContent = product.Brand.Name;
   document.getElementById("productNameWithoutBrand").textContent =
     product.NameWithoutBrand;
   document.getElementById("productImage").src = product.Image;
   document.getElementById("productImage").alt = product.NameWithoutBrand;
   document.getElementById("productMSR").textContent =
-    `List Price: $${product.ListPrice}`;
+    `List Price: $${product.SuggestedRetailPrice}`;
   document.getElementById("productFinalPrice").textContent =
     `Our Price: $${product.FinalPrice}`;
   document.getElementById("productSavings").textContent =
-    `You Save: $${product.ListPrice - product.FinalPrice}`;
+    `You Save: $${newPrice}`;
   document.getElementById("productColorName").textContent =
     product.Colors[0].ColorName;
   document.getElementById("productDescriptionHtmlSimple").innerHTML =
