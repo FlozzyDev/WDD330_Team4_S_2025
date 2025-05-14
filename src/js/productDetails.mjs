@@ -1,6 +1,6 @@
-import { updateCartCounter } from "./main.js";
 import { findProductById } from "./productData.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { addProductToCart } from "./cart";
 
 let product = {};
 
@@ -35,27 +35,4 @@ function renderProductDetails() {
   document.getElementById("productDescriptionHtmlSimple").innerHTML =
     product.DescriptionHtmlSimple;
   document.getElementById("addToCart").setAttribute("data-id", product.Id);
-}
-
-function addProductToCart(product) {
-  let cart = getLocalStorage("so-cart");
-
-  if (cart === null) {
-    cart = [];
-  } else if (!Array.isArray(cart)) {
-    cart = [cart];
-  }
-  cart.push(product);
-  setLocalStorage("so-cart", cart);
-  pulseCartIcon();
-  updateCartCounter();
-}
-
-function pulseCartIcon() {
-  const cartIcon = document.getElementById("cart-icon");
-  cartIcon.classList.add("pulse-orange");
-  setTimeout(() => {
-    cartIcon.classList.remove("pulse-orange");
-  }, 1000);
-  console.log("pulsed!");
 }
