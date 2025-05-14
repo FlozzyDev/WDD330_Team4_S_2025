@@ -24,8 +24,12 @@ function renderProductDetails() {
     product.NameWithoutBrand;
   document.getElementById("productImage").src = product.Image;
   document.getElementById("productImage").alt = product.NameWithoutBrand;
+  document.getElementById("productMSR").textContent =
+    `List Price: $${product.ListPrice}`;
   document.getElementById("productFinalPrice").textContent =
-    `${product.FinalPrice}`;
+    `Our Price: $${product.FinalPrice}`;
+  document.getElementById("productSavings").textContent =
+    `You Save: $${product.ListPrice - product.FinalPrice}`;
   document.getElementById("productColorName").textContent =
     product.Colors[0].ColorName;
   document.getElementById("productDescriptionHtmlSimple").innerHTML =
