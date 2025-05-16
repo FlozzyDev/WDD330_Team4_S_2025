@@ -89,7 +89,7 @@ header {
 
 button {
   padding: 0.5em 2em;
-  border-radius: 4%;
+  border-radius: 0%;
   background-color: var(--secondary-color);
   color: white;
   margin: auto;
@@ -97,6 +97,16 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+}
+button:hover {
+  background-color: var(--primary-color);
+  color: rgb(255, 255, 255);
+}
+
+button:active {
+  background-color: var(--tertiary-color);
+  color: rgb(255, 255, 255);
+  border-color: #f0a868;
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
@@ -271,7 +281,44 @@ button {
   grid-column: 3;
 }
 
-.cart-card__remove {
+.add_remove {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  grid-row: 1;
+  grid-column: 3;
+}
+
+.cart-card__remove, .cart-card__add {
+  padding: 0.5em 1em;
+  border-radius: 15%;
+  color: white;
+  border: 1px solid var(--tertiary-color);
+  font-size: var(--small-font);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.cart-card__remove{
+  background-color: rgb(155, 73, 35);
+}
+.cart-card__remove:hover {
+  background-color: rgba(202, 78, 20, 0.8);
+}
+.cart-card__remove:active {
+  background-color: rgb(245, 76, 4);
+}
+.cart-card__add {
+  background-color: green;
+}
+.cart-card__add:hover {
+  background-color: rgb(11, 190, 11);
+}
+.cart-card__add:active {
+  background-color: rgb(12, 240, 12);
+}
+
+/* .cart-card__remove {
   padding: 0.5em 1em;
   border-radius: 4%;
   background-color: var(--secondary-color);
@@ -281,7 +328,7 @@ button {
   cursor: pointer;
   grid-row: 1;
   grid-column: 3;
-}
+} */
 
 @media screen and (min-width: 500px) {
   body {

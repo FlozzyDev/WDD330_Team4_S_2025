@@ -15,6 +15,14 @@ function renderCartContents() {
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".cart-list").innerHTML = htmlItems.join("");
 
+  document.querySelectorAll(".cart-card__add").forEach((button) => {
+    button.addEventListener("click", function () {
+      const id = this.getAttribute("data-id");
+      increaseItemQuantity(id);
+      updateCartCounter();
+    });
+  });
+
   document.querySelectorAll(".cart-card__remove").forEach((button) => {
     button.addEventListener("click", function () {
       const id = this.getAttribute("data-id");
@@ -38,7 +46,10 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">Quantity: ${item.quantity}</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
-  <button class="cart-card__remove" data-id=${item.Id}>X</button>
+  <div class = "add_remove">
+  <button class="cart-card__add" data-id=${item.Id}>+</button>
+  <button class="cart-card__remove" data-id=${item.Id}>-</button>
+  </div>
 </li>`;
 
   return newItem;
@@ -90,6 +101,28 @@ function pulseCartIcon() {
     cartIcon.classList.remove("pulse-orange");
   }, 1000);
   console.log("pulsed!");
+}
+
+function increaseItemQuantity(id) {
+  let cart = getLocalStorage("so-cart");
+  if (!cart) return;
+
+  if (!Array.isArray(cart)) {
+    cart = [cart];
+  }
+
+  const itemIndex = cart.findIndex((item) => item.Id === id);
+
+  if (itemIndex >= 0) {
+    if (!cart[itemIndex].quantity) {
+      cart[itemIndex].quantity = 1;
+    }
+    cart[itemIndex].quantity += 1;
+  }
+
+  setLocalStorage("so-cart", cart);
+  renderCartContents();
+  pulseCartIcon();
 }
 
 function removeItemFromCart(id) {
