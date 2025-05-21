@@ -1,8 +1,9 @@
 import productList from "./productList.mjs";
-import { updateCartCounter } from "./cart";
+import { updateCartCounter } from "./cart.js";
+import { loadHeaderFooter } from "./utils.mjs";
 
-productList(".product-list", "tents");
-
-document.addEventListener("DOMContentLoaded", function () {
+loadHeaderFooter().then(() => {
   updateCartCounter();
 });
+
+productList(".product-list", "tents");
