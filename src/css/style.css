@@ -318,6 +318,12 @@ button:active {
   background-color: rgb(12, 240, 12);
 }
 
+#cart-total-price {
+  text-decoration: underline;
+  font-size: large;
+  font-weight: 800;
+}
+
 /* .cart-card__remove {
   padding: 0.5em 1em;
   border-radius: 4%;

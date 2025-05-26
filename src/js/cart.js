@@ -2,18 +2,28 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
+  const cartTotal = document.getElementById("cart-total-price");
+
+  // if cart empty...
   if (!cartItems || !Array.isArray(cartItems) || cartItems.length === 0) {
-    // if cart empty...
     document.getElementById("product-list--cart").innerHTML = `
     <li class="empty-cart">
       <p>Your cart appears to be empty!</p>
       <button onclick="location.href='/'" class="home-button">Continue Shopping</a>
     </li>`;
+    cartTotal.textContent = "Total: $0.00";
     return;
   }
 
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".cart-list").innerHTML = htmlItems.join("");
+
+  // return the total price of all items
+  const total = cartItems.reduce((loopTotal, item) => {
+    return loopTotal + item.FinalPrice * (item.quantity || 1);
+  }, 0);
+
+  cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 
   document.querySelectorAll(".cart-card__add").forEach((button) => {
     button.addEventListener("click", function () {
