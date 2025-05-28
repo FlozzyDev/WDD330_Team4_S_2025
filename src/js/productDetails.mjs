@@ -25,7 +25,7 @@ function renderProductDetails() {
   document.getElementById("productBrand").textContent = product.Brand.Name;
   document.getElementById("productNameWithoutBrand").textContent =
     product.NameWithoutBrand;
-  document.getElementById("productImage").src = product.Image;
+  document.getElementById("productImage").src = product.Images.PrimaryLarge;
   document.getElementById("productImage").alt = product.NameWithoutBrand;
   document.getElementById("productMSR").textContent =
     `List Price: $${product.SuggestedRetailPrice}`;

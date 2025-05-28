@@ -1,3 +1,5 @@
+const baseURL = import.meta.env.VITE_SERVER_URL;
+
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -7,13 +9,19 @@ function convertToJson(res) {
 }
 
 export async function getData(category = "tents") {
-  const response = await fetch(`/json/${category}.json`);
-  console.log("Trying to fetch data:", response);
+  const url = baseURL + `products/search/${category}`;
+  console.log("Fetching:", url);
+  const response = await fetch(url);
   const data = await convertToJson(response);
-  return data;
+  console.log("API data:", data);
+  return data.Result;
 }
 
 export async function findProductById(id) {
-  const products = await getData();
-  return products.find((item) => item.Id === id);
+  const url = baseURL + `product/${id}`;
+  console.log("Fetching:", url);
+  const response = await fetch(url);
+  const data = await convertToJson(response);
+  console.log("API data:", data);
+  return data.Result;
 }
