@@ -375,3 +375,31 @@ footer {
   80% { transform: translateY(2px); }
   100% { transform: translateY(0); }
 }
+
+.category-grid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2rem 0;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.category-card img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0.5rem;
+}
+
+.category-label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}

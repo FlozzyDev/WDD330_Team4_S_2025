@@ -7,9 +7,9 @@ function productCardTemplate(product) {
   );
 
   return `<li class="product-card">
-    <a href="product_pages/index.html?product=${product.Id}">
+    <a href="/product_pages/index.html?product=${product.Id}">
     <img 
-        src="${product.Image}" 
+        src="${product.Images.PrimaryMedium}" 
         alt="${product.Name}"
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -23,12 +23,8 @@ function productCardTemplate(product) {
 
 export default async function productList(selector, category) {
   const products = await getData(category);
-  const highlightedProducts = highlightProducts(products);
   const item = document.querySelector(selector);
-  renderListWithTemplate(productCardTemplate, item, highlightedProducts);
-}
-
-function highlightProducts(products) {
-  const targetProducts = ["880RR", "985RF", "985PR", "344YJ"];
-  return products.filter((product) => targetProducts.includes(product.Id));
+  const heading = document.querySelector('.products h2');
+  heading.textContent = `Top Products: ${category.charAt(0).toUpperCase() + category.slice(1)}`; // Capitalize the first letter of the category
+  renderListWithTemplate(productCardTemplate, item, products);
 }
