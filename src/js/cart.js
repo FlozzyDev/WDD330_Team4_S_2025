@@ -1,4 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import checkoutProcess from "./checkoutProcess.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -43,10 +44,11 @@ function renderCartContents() {
 }
 
 function cartItemTemplate(item) {
+  const image = (item.Images && item.Images.PrimaryMedium) ? item.Images.PrimaryMedium : item.Image;
   const newItem = `<li class="cart-card divider">
   <a href="/product_pages/index.html?product=${item.Id}" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${image}"
       alt="${item.Name}"
     />
   </a>
