@@ -30,7 +30,6 @@ document.getElementById("checkout-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const json = checkoutProcess.checkout(e.target);
   console.log("Payload format sent to server:", json);
-  checkoutProcess.checkout(e.target);
 });
 
 
