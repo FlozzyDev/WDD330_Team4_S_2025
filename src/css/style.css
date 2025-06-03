@@ -17,6 +17,11 @@
 * {
   box-sizing: border-box;
 }
+
+.hidden {
+  display: none !important;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -26,6 +31,7 @@ body {
 img {
   max-width: 100%;
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -292,6 +298,11 @@ button:active {
   gap: 0.5em;
   grid-row: 1;
   grid-column: 3;
+}
+
+.checkout-button {
+  margin-bottom: 1em;
+  border-radius: 10%;
 }
 
 .cart-card__remove, .cart-card__add {

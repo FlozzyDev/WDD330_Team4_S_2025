@@ -1,5 +1,4 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import checkoutProcess from "./checkoutProcess.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");

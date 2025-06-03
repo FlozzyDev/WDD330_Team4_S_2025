@@ -11,13 +11,11 @@
     <link rel="stylesheet" href="/css/style.css" />
 
     <script src="../js/main.js" type="module"></script>
-    <script src="../js/cart.js" type="module"></script>
     <script src="../js/checkout.js" type="module"></script>
   </head>
 
   <body>
     <header class="divider" id="main-header"></header>
-      </div>
 
     <main class="divider checkout">
       <div class="checkout-container">
@@ -28,11 +26,11 @@
             <legend>Shipping</legend>
             <div class="form-row">
               <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" required />
+              <input type="text" id="firstName" name="fname" required />
             </div>
             <div class="form-row">
               <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" required />
+              <input type="text" id="lastName" name="lname" required />
             </div>
             <div class="form-row">
               <label for="street">Street</label>
@@ -58,7 +56,7 @@
               <input
                 id="cardNumber"
                 name="cardNumber"
-                placeholder="1111 2222 3333 4444"
+                placeholder="1234123412341234"
                 required
               />
             </div>
@@ -75,7 +73,7 @@
               <label for="securityCode">Security Code</label>
               <input
                 id="securityCode"
-                name="securityCode"
+                name="code"
                 placeholder="123"
                 required
               />
@@ -84,10 +82,10 @@
         <form id="order-summary" aria-label="Order Summary">
           <fieldset disabled>
             <legend>Order Summary</legend>
-            <div class="summary">Item Subtotal(<span id="item-count">fill</span>): <span id="item-subtotal">fill</span></div>
-            <div class="summary">Shipping Estimate: <span id="shipping-estimate"></span></div>
-            <div class="summary">Tax: <span id="tax"></span></div>
-            <div class="summary" id="summary-total">Order Total: <span id="order-total"></span></div>
+            <div class="summary">Item Subtotal(<span id="item-count"></span>): <span id="item-subtotal"></span></div>
+            <div class="summary">Shipping Estimate: <span class="hidden" id="shipping-estimate"></span></div>
+            <div class="summary">Tax: <span class="hidden" id="tax"></span></div>
+            <div class="summary" id="summary-total">Order Total: <span class="hidden" id="order-total"></span></div>
           </fieldset>
           <button type="submit">Submit Order</button>
         </form>
