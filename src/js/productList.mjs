@@ -1,4 +1,4 @@
-import { getData } from "./productData.mjs";
+import { getProductsByCategory } from "./externalServices.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
@@ -22,7 +22,7 @@ function productCardTemplate(product) {
 }
 
 export default async function productList(selector, category) {
-  const products = await getData(category);
+  const products = await getProductsByCategory(category);
   const item = document.querySelector(selector);
   const heading = document.querySelector('.products h2');
   heading.textContent = `Top Products: ${category.charAt(0).toUpperCase() + category.slice(1)}`; // Capitalize the first letter of the category
