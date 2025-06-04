@@ -1,11 +1,11 @@
-import { findProductById } from "./productData.mjs";
+import { getProductById } from "./externalServices.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 import { addProductToCart } from "./cart";
 
 let product = {};
 
 export default async function getProductDetails(productId) {
-  product = await findProductById(productId);
+  product = await getProductById(productId);
   console.log(`Getting ${productId}`);
   renderProductDetails();
 
