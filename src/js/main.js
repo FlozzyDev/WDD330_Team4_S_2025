@@ -1,7 +1,10 @@
 import { updateCartCounter } from "./cart.js";
 import { loadHeaderFooter } from "./utils.mjs";
+import { showRegistrationBanner } from "./registerBanner.js";
 
 loadHeaderFooter().then(() => {
-  setTimeout(updateCartCounter, 10);
+  updateCartCounter();
+  showRegistrationBanner();
+   setTimeout(updateCartCounter, 10);
   console.log('cart loaded')
 });
