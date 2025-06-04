@@ -17,6 +17,50 @@
 * {
   box-sizing: border-box;
 }
+/*banner styles */
+.register-banner {
+  background: var(--secondary-color);
+  color: #fff;
+  padding: 0.2rem 0.5rem; /* Reduced padding */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  font-size: 0.85rem; /* Smaller font size */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* Smaller gap */
+  font-family: var(--font-family, inherit);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-height: 32px; /* Minimum height for compactness */
+}
+/* Add this to push the header down when the banner is present */
+body .register-banner + #main-header,
+body .register-banner + header {
+  margin-top: 42px; /* match min-height of .register-banner */
+}
+
+.register-banner .register-link {
+  color: var(--on-primary, #fff);
+  text-decoration: underline;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.register-banner .close-banner {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  background: none;
+  border: none;
+  color: var(--on-primary, #fff);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -31,6 +75,7 @@ header {
   justify-content: space-between;
   padding: 0 10px;
 }
+
 .logo {
   line-height: 60px;
   width: 245px;
@@ -289,7 +334,8 @@ button:active {
   grid-column: 3;
 }
 
-.cart-card__remove, .cart-card__add {
+.cart-card__remove,
+.cart-card__add {
   padding: 0.5em 1em;
   border-radius: 15%;
   color: white;
@@ -299,7 +345,7 @@ button:active {
   cursor: pointer;
 }
 
-.cart-card__remove{
+.cart-card__remove {
   background-color: rgb(155, 73, 35);
 }
 .cart-card__remove:hover {
@@ -355,25 +401,45 @@ footer {
   padding: 1em;
 }
 
-/* Animations below */ 
+/* Animations below */
 
 .pulse-orange {
-  animation: pulse-orange 1s ease-in-out, shake 0.5s ease-in-out;
+  animation:
+    pulse-orange 1s ease-in-out,
+    shake 0.5s ease-in-out;
 }
 
 @keyframes pulse-orange {
-  0% {fill: inherit}
-  50% {fill: var(--primary-color)}
-  100% {fill: inherit}
+  0% {
+    fill: inherit;
+  }
+  50% {
+    fill: var(--primary-color);
+  }
+  100% {
+    fill: inherit;
+  }
 }
 
 @keyframes shake {
-  0% { transform: translateY(0); }
-  20% { transform: translateY(-3px); }
-  40% { transform: translateY(3px); }
-  60% { transform: translateY(-2px); }
-  80% { transform: translateY(2px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-3px);
+  }
+  40% {
+    transform: translateY(3px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+  80% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .category-grid {
