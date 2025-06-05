@@ -1,31 +1,24 @@
-import { renderWithTemplate } from "./utils.mjs";
+import { convertToJson } from "./externalServices.mjs";
 
 export async function checkAlert() {
-    let data = getAlerts(); // get json file with alert data
-    if (!data.Result) { return; } // check to see if any alert is there - end function if none
-    let html = alertTemplate(data); // information found so put it into a template
-    renderWithTemplate(html, "main", position = "afterbegin", clear = true); // load template into page
-    let stylePoint = querySelector(".alert-list");
-    stylePoint.style.backgroundcolor = `${data.background}`;
-    stylePoint.style.color = `${data.color}`;
-}
-
-let alertMessage = ''; // create variable outside function so others can use it
-function alertTemplate(data) { // receive data from json file
-  const str1 = '<section class="alert-list">'; // first item into message structure is the section where the messages display
-  const str2 = '</section>'; // last item into message structure
-  for (let item in data) {
-      alertMessage.concat(`<p>${item}</p>`); // build the message with all items found
+  let data = await getAlerts(); // get json file with alert data
+  if (!data || data.length === 0) {
+    return;
   }
-  let builtMessage = concat(str1, alertMessage, str2); // assemble full message structure
-  return builtMessage; // send it back for rendering to page
-}
 
+  let alertHtml = `<section class="alert-list">`;
+  for (let i = 0; i < data.length; i++) {
+    alertHtml += `<p style="background-color: ${data[i].background}; color: ${data[i].color};">${data[i].message}</p>`;
+  }
+  alertHtml += `</section>`;
+
+  const mainElement = document.querySelector("#main");
+  mainElement.insertAdjacentHTML("afterbegin", alertHtml);
+  console.log(`${data[0].background} & ${data[0].color} `);
+}
 async function getAlerts() {
-  const url = "../public/json/alerts.json";
-  console.log("Fetching:", url);
+  const url = "/json/alerts.json";
   const response = await fetch(url);
   const data = await convertToJson(response);
-  console.log("API data:", data);
-  return data.Result;
+  return data;
 }

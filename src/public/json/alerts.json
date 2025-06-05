@@ -1,12 +1,12 @@
 [
-    {
-    "message": "This is only a test",
+  {
+    "message": "This is a darkblue test",
     "background": "darkblue",
     "color": "white"
-    },
-    {
-    "message": "This is another test",
-    "background": "darkblue",
+  },
+  {
+    "message": "This is a red test",
+    "background": "red",
     "color": "white"
-    }
+  }
 ]
