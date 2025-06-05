@@ -1,6 +1,6 @@
 const baseURL = import.meta.env.VITE_SERVER_URL;
 
-function convertToJson(res) {
+export function convertToJson(res) {
   if (res.ok) {
     return res.json();
   } else {
@@ -27,7 +27,9 @@ export async function getProductById(id) {
 }
 
 export async function checkout(json) {
-  const url = import.meta.env.VITE_CHECKOUT_URL || "http://server-nodejs.cit.byui.edu:3000/checkout";
+  const url =
+    import.meta.env.VITE_CHECKOUT_URL ||
+    "http://server-nodejs.cit.byui.edu:3000/checkout";
   const options = {
     method: "POST",
     headers: {
