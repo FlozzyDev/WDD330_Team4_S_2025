@@ -1,0 +1,4 @@
+npm install --save-dev vite --> run this when repo is new in VS Code
+npm run start --> run this to start live reload server
+npm run build --> run this to package the files into deploy build
+npm run preview --> run this to see a deployed preview
