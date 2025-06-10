@@ -54,11 +54,10 @@ body .register-banner + header {
 .register-banner .close-banner {
   position: absolute;
   right: 8px;
-  top: 4px;
   background: none;
   border: none;
   color: var(--on-primary, #fff);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   line-height: 1;
 }
@@ -228,6 +227,11 @@ button:active {
   border-radius: 10%;
 }
 
+.product-card:hover {
+  border-color: var(--primary-color);
+  box-sizing: border-box;
+}
+
 .product-list {
   display: flex;
   flex-flow: row wrap;
@@ -253,6 +257,18 @@ button:active {
 
 .empty-cart p {
   font-size: var(--large-font);
+}
+
+#spacer {
+  margin-top: 3em;
+}
+
+#success_packing {
+  max-width: 240px;
+  max-height: 240px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .empty-cart .home-button {
@@ -292,16 +308,42 @@ button:active {
 .card__name {
   font-size: 1em;
 }
+
+.filter {
+  margin: 1em 0;
+}
+
+#filter-dropdown {
+  padding: 0.5em 1em;
+  border-width: .2em;
+  background-color: white;
+  border-color: #525b0f;
+  font-size: small;
+  cursor: pointer;
+}
+
+#filter-dropdown:hover {
+  border-color: var(--primary-color)
+}
+
+#filter-dropdown:focus {
+  outline: none;
+  background-color: var(--light-grey)
+}
+
+
 /* End product list card */
 
 .product-detail {
   padding: 1em;
   max-width: 500px;
+  text-align: center;
   margin: auto;
 }
 
 .product-detail img {
   width: 70%;
+  padding-bottom: 1em;
 }
 
 /* Start cart list card styles */
@@ -387,6 +429,32 @@ button:active {
   text-decoration: underline;
   font-size: large;
   font-weight: 800;
+}
+
+#home-suc-button {
+  margin-bottom: 2em;
+  padding: 0.5em 1em;
+  border-radius: 4%;
+  background-color: var(--secondary-color);
+  color: white;
+  margin: auto;
+  display: block;
+  border: 0;
+  font-size: var(--medium-font);
+  cursor: pointer;
+}
+
+#home-suc-button:hover {
+  background-color: var(--primary-color);
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 /* .cart-card__remove {

@@ -6,17 +6,16 @@ const tax = document.getElementById("tax");
 const orderTotal = document.getElementById("order-total");
 
 loadHeaderFooter().then(() => {
-    checkoutProcess.init();
+  checkoutProcess.init();
 });
 
-document.getElementById("zip").addEventListener("input", function() {
+document.getElementById("zip").addEventListener("input", function () {
   if (this.value.trim().length >= 5) {
     shippingEstimate.classList.remove("hidden");
     tax.classList.remove("hidden");
     orderTotal.classList.remove("hidden");
     checkoutProcess.calculateOrdertotal();
-  }
-  else {
+  } else {
     shippingEstimate.classList.add("hidden");
     tax.classList.add("hidden");
     orderTotal.classList.add("hidden");
@@ -26,10 +25,13 @@ document.getElementById("zip").addEventListener("input", function() {
   }
 });
 
-document.getElementById("checkout-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const json = checkoutProcess.checkout(e.target);
-  console.log("Payload format sent to server:", json);
-});
-
-
+document
+  .getElementById("checkout-form")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+    try {
+      await checkoutProcess.checkout(e.target);
+    } catch (error) {
+      console.log(`Checkout failed:`, error);
+    }
+  });
