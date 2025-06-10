@@ -54,11 +54,10 @@ body .register-banner + header {
 .register-banner .close-banner {
   position: absolute;
   right: 8px;
-  top: 4px;
   background: none;
   border: none;
   color: var(--on-primary, #fff);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   line-height: 1;
 }
@@ -255,6 +254,18 @@ button:active {
   font-size: var(--large-font);
 }
 
+#spacer {
+  margin-top: 3em;
+}
+
+#success_packing {
+  max-width: 240px;
+  max-height: 240px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .empty-cart .home-button {
   padding: 0.5em 2em;
   border-radius: 4%;
@@ -387,6 +398,32 @@ button:active {
   text-decoration: underline;
   font-size: large;
   font-weight: 800;
+}
+
+#home-suc-button {
+  margin-bottom: 2em;
+  padding: 0.5em 1em;
+  border-radius: 4%;
+  background-color: var(--secondary-color);
+  color: white;
+  margin: auto;
+  display: block;
+  border: 0;
+  font-size: var(--medium-font);
+  cursor: pointer;
+}
+
+#home-suc-button:hover {
+  background-color: var(--primary-color);
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2px solid var(--primary-color);
 }
 
 /* .cart-card__remove {
