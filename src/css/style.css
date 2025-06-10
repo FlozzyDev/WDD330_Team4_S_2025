@@ -227,6 +227,11 @@ button:active {
   border-radius: 10%;
 }
 
+.product-card:hover {
+  border-color: var(--primary-color);
+  box-sizing: border-box;
+}
+
 .product-list {
   display: flex;
   flex-flow: row wrap;
@@ -303,16 +308,42 @@ button:active {
 .card__name {
   font-size: 1em;
 }
+
+.filter {
+  margin: 1em 0;
+}
+
+#filter-dropdown {
+  padding: 0.5em 1em;
+  border-width: .2em;
+  background-color: white;
+  border-color: #525b0f;
+  font-size: small;
+  cursor: pointer;
+}
+
+#filter-dropdown:hover {
+  border-color: var(--primary-color)
+}
+
+#filter-dropdown:focus {
+  outline: none;
+  background-color: var(--light-grey)
+}
+
+
 /* End product list card */
 
 .product-detail {
   padding: 1em;
   max-width: 500px;
+  text-align: center;
   margin: auto;
 }
 
 .product-detail img {
   width: 70%;
+  padding-bottom: 1em;
 }
 
 /* Start cart list card styles */
