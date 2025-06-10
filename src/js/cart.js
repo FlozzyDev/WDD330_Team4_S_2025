@@ -3,9 +3,11 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const cartTotal = document.getElementById("cart-total-price");
+  const checkoutButton = document.getElementById("checkout-button");
 
   // if cart empty...
   if (!cartItems || !Array.isArray(cartItems) || cartItems.length === 0) {
+    checkoutButton.classList.add("hidden");
     document.getElementById("product-list--cart").innerHTML = `
     <li class="empty-cart">
       <p>Your cart appears to be empty!</p>
@@ -43,7 +45,10 @@ function renderCartContents() {
 }
 
 function cartItemTemplate(item) {
-  const image = (item.Images && item.Images.PrimaryMedium) ? item.Images.PrimaryMedium : item.Image;
+  const image =
+    item.Images && item.Images.PrimaryMedium
+      ? item.Images.PrimaryMedium
+      : item.Image;
   const newItem = `<li class="cart-card divider">
   <a href="/product_pages/index.html?product=${item.Id}" class="cart-card__image">
     <img
@@ -64,6 +69,10 @@ function cartItemTemplate(item) {
 </li>`;
 
   return newItem;
+}
+
+function addItemAlert(product) {
+  alert(`${product.Name} added to cart!`);
 }
 
 export function addProductToCart(product) {
@@ -88,6 +97,7 @@ export function addProductToCart(product) {
   setLocalStorage("so-cart", cart);
   pulseCartIcon();
   updateCartCounter();
+  addItemAlert(product);
 }
 
 export function updateCartCounter() {
