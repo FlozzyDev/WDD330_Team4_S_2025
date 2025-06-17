@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sleep Outside | Login</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="/js/main.js" type="module"></script>
+    <script src="/js/login.js" type="module"></script>
+  </head>
+  <body>
+    <header id="main-header" class="divider"></header>
+    <main class="divider" id="login-main">
+      <div class="login-container-wrapper">
+        <div class="login-container">
+          <h1>Order Login</h1>
+          <h3 id="login-message">Please login to view orders</h3>
+          <form id="login-form">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            <button type="submit" class="btn btn-login">Login</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer id="main-footer"></footer>
+  </body>
+</html>

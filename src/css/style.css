@@ -711,3 +711,164 @@ footer {
 .checkout.divider {
   border-bottom: none;
 }
+
+#login-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container-wrapper {
+  max-width: 800px;
+  margin: 6rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+}
+
+.login-container, .orders-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.login-container h1, .orders-container h1 {
+    text-align: center;
+    text-decoration: underline;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.orders-container h1 {
+  text-align: center;
+  text-decoration: underline;
+  color: #333;
+  margin-top: 0 !important;
+}
+
+.login-container {
+    max-width: 600px;
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn-login {
+    width: 50%;
+    padding: 0.75rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.btn-login:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+#orders-main {
+  width: 100%;
+  margin-top: 0 !important;
+}
+
+.order-card {
+    background: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 220px;
+    height: 220px;
+    flex-shrink: 0;
+}
+
+.order-card:hover {
+    transform: scale(1.1);
+    transition: transform 0.1s ease-in-out;
+    border: 3px solid var(--primary-color);
+}
+
+#orders-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+#order-id {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.order-divider {
+  border-bottom: 1px solid var(--primary-color);
+  margin: 0.5rem 0;
+}
+
+#order-name {
+  color: #ffffff;
+  font-size: .8rem;
+  font-weight:500;
+}
+
+#order-address {
+  color: #ffffff;
+  font-size: .8rem;
+  font-weight:500;
+}
+
+#order-date {
+  color: #ffffff;
+  font-size: .8rem;
+  font-weight:500;
+}
+
+#order-total {
+  color: #ffffff;
+  font-size: 1.0rem;
+  font-weight:900;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+#login-message {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+#login-message.error {
+    color: #ff0000;
+}
+
+#login-message.success {
+    color: #4CAF50;
+}
