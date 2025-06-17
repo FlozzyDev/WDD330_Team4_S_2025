@@ -43,3 +43,37 @@ export async function checkout(json) {
   const response = await fetch(url, options);
   return convertToJson(response);
 }
+
+export async function loginRequest(user) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  };
+  const response = await fetch(baseURL + "login", options).then(convertToJson);
+  if (response.accessToken) {
+    return response.accessToken;
+  } else {
+    console.log("Failed to login");
+    return null;
+  }
+}
+
+export async function getOrders(token) {
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await fetch(baseURL + "orders", options).then(convertToJson);
+  if (response) {
+    console.log("orders:", response);
+    return response;
+  } else {
+    console.log("No orders found");
+    return [];
+  }
+}
