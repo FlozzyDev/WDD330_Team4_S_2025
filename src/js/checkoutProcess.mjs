@@ -56,7 +56,7 @@ const checkoutProcess = {
     document.getElementById("shipping-estimate").textContent =
       `$${this.shipping.toFixed(2)}`;
     document.getElementById("tax").textContent = `$${this.tax.toFixed(2)}`;
-    document.getElementById("order-total").textContent =
+    document.getElementById("cart-order-total").textContent =
       `$${this.orderTotal.toFixed(2)}`;
   },
 
