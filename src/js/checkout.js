@@ -3,7 +3,7 @@ import checkoutProcess from "./checkoutProcess.mjs";
 
 const shippingEstimate = document.getElementById("shipping-estimate");
 const tax = document.getElementById("tax");
-const orderTotal = document.getElementById("order-total");
+const orderTotal = document.getElementById("cart-order-total");
 
 loadHeaderFooter().then(() => {
   checkoutProcess.init();
